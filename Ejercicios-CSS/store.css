@@ -59,7 +59,7 @@ a {
     background-color: var(--color-primario);
     padding: 5px;
     transition: background-color 0.8s linear 0.2s;
-    margin: 10px 0px;
+    margin: 10px ;
 }
 
 a:hover {
