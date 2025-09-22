@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Catálogo de Productos</title>
+    <link href="store.css" rel="stylesheet" type="text/css"/>
+    <script src="tienda.js" type="text/javascript"></script>
+    <meta charset="UTF-8"/>
+</head>
+<body class="grid-container" onload="mostrarCatalogo();contarProductos()">
+<header class="item1">Católogo de Productos</header>
+<nav class="item2">
+    <a href="productos.html">Catálogo de Productos</a>
+    <a href="carrito.html">Carrito de Compras</a>
+    <div id="cant-prod">0</div>
+</nav>
+<aside class="item3">
+    <form>
+        <fieldset>
+            <legend>Búsqueda</legend>
+            <label for="search">Buscar:</label>
+            <input
+                    id="search"
+                    name="search"
+                    onchange="filtrarProducto()"
+                    placeholder="Palabra..."
+                    type="text"
+            />
+        </fieldset>
+        <fieldset>
+            <legend>Precios</legend>
+            <p>
+                <label for="price-min">Mínimo:</label>
+                <input
+                        id="price-min"
+                        min="0"
+                        name="price-min"
+                        onchange="filtrarProducto()"
+                        type="number"
+                        value="0"
+                />
+            </p>
+            <p>
+                <label for="price-max">Máximo:</label>
+                <input
+                        id="price-max"
+                        min="0"
+                        name="price-max"
+                        onchange="filtrarProducto()"
+                        type="number"
+                />
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Tipo de Productos</legend>
+            <p>
+                <input
+                        id="protectores"
+                        name="protectores"
+                        onchange="filtrarProducto()"
+                        type="checkbox"
+                />
+                <label for="protectores">Protectores</label>
+            </p>
+            <p>
+                <input
+                        id="entrenamiento"
+                        name="entrenamiento"
+                        onchange="filtrarProducto()"
+                        type="checkbox"
+                />
+                <label for="entrenamiento">Entrenamiento</label>
+            </p>
+            <p>
+                <input
+                        id="dobok"
+                        name="dobok"
+                        onchange="filtrarProducto()"
+                        type="checkbox"
+                />
+                <label for="dobok">Dobok</label>
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Marca</legend>
+            <select id="marca" onchange="filtrarProducto()">
+                <option value="Todas">Todas</option>
+                <option value="Gran Marc">Gran Marc</option>
+                <option value="Daedo">Daedo</option>
+            </select>
+        </fieldset>
+    </form>
+</aside>
+<dialog id="detalle">
+    <h2>Detalle del Producto</h2>
+    <h3 id="titulo-prod">Cabezal Cerrado</h3>
+    <p id="descr-prod">Este producto viene del talle 1 al 3.</p>
+    <p id="precio-prod"></p>
+    <button onclick="cerrarModal()" type="button">Cerrar</button>
+</dialog>
+<main class="item4" id="catalogo"></main>
+<footer class="item5">Info de Contacto</footer>
+</body>
+</html>
