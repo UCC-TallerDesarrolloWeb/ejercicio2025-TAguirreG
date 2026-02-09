@@ -19,9 +19,9 @@
             <legend>Búsqueda</legend>
             <label for="search">Buscar:</label>
             <input
+                    onchange="filtrarProducto()"
                     id="search"
                     name="search"
-                    onchange="filtrarProducto()"
                     placeholder="Palabra..."
                     type="text"
             />
@@ -31,22 +31,22 @@
             <p>
                 <label for="price-min">Mínimo:</label>
                 <input
-                        id="price-min"
                         min="0"
+                        id="price-min"
                         name="price-min"
+                        value="0"
                         onchange="filtrarProducto()"
                         type="number"
-                        value="0"
                 />
             </p>
             <p>
                 <label for="price-max">Máximo:</label>
                 <input
-                        id="price-max"
-                        min="0"
                         name="price-max"
-                        onchange="filtrarProducto()"
+                        id="price-max"
                         type="number"
+                        min="0"
+                        onchange="filtrarProducto()"
                 />
             </p>
         </fieldset>
@@ -54,28 +54,28 @@
             <legend>Tipo de Productos</legend>
             <p>
                 <input
+                        type="checkbox"
                         id="protectores"
                         name="protectores"
                         onchange="filtrarProducto()"
-                        type="checkbox"
                 />
                 <label for="protectores">Protectores</label>
             </p>
             <p>
                 <input
+                        type="checkbox"
                         id="entrenamiento"
                         name="entrenamiento"
                         onchange="filtrarProducto()"
-                        type="checkbox"
                 />
                 <label for="entrenamiento">Entrenamiento</label>
             </p>
             <p>
                 <input
+                        type="checkbox"
                         id="dobok"
                         name="dobok"
                         onchange="filtrarProducto()"
-                        type="checkbox"
                 />
                 <label for="dobok">Dobok</label>
             </p>
@@ -88,6 +88,13 @@
                 <option value="Daedo">Daedo</option>
             </select>
         </fieldset>
+        <select id="order" onchange="orderCatalog(this.value)">
+            <option disabled value="">Seleccione un orden</option>
+            <option value="menor">Precio - de Menor a Mayor</option>
+            <option value="mayor">Precio - de Mayor a Menor</option>
+            <option value="a-z">Nombre - de A a la Z</option>
+            <option value="z-a">Nombre - de la Z a la A</option>
+        </select>
     </form>
 </aside>
 <dialog id="detalle">

@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Arial', cursive;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 main {
@@ -48,10 +48,10 @@ div img {
 .grid-container {
     display: grid;
     grid-template-areas:
-                    "header header header header"
-                    "nav nav nav nav"
-                    "aside main main main"
-                    "footer footer footer footer";
+    "header header header header"
+    "nav nav nav nav"
+    "aside main main main"
+    "footer footer footer footer";
 }
 
 a {
@@ -60,7 +60,7 @@ a {
     background-color: var(--color-primario);
     padding: 5px;
     transition: background-color 0.8s linear 0.2s;
-    margin: 10px;
+    margin: 10px 0px;
 }
 
 a:hover {
@@ -68,14 +68,15 @@ a:hover {
 }
 
 header {
-    margin: 10px;
-    background-color: white;
+    margin: 0 0 20px 0;
+    background-color: var(--color-primario);
+    color: white;
 }
 
-#cant-prod{
+#cant-prod {
     background-color: var(--color-primario);
     border-radius: 50%;
     display: inline;
     color: var(--color-letra);
-    padding: 5px;
+    padding: 7px;
 }
