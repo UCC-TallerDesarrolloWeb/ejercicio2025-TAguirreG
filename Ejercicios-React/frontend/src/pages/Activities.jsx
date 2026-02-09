@@ -1,6 +1,5 @@
 import '@styles/Activities.scss';
-// Importamos los datos locales y les ponemos un alias para que no choquen con el estado
-import { activities as localData } from '../data/activities.js';
+//import { activities } from '../data/activities';
 import Card from '../components/Card';
 import { useEffect, useState } from 'react';
 
@@ -10,23 +9,20 @@ const Activities = () => {
 
     const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
-    // COMENTAMOS TODO LO RELACIONADO AL FETCH PARA EVITAR ERRORES
-    /*
     const BASE_URL = "http://localhost:4000/activities";
+
     const fetchActivities = async () => {
-        try {
+        try{
             const response = await fetch(BASE_URL);
             const data = await response.json();
             setActivities(data);
-        } catch (error) {
-            console.error(`Error al retornar actividades ${error}`)
+        }catch(error){
+            console.error(`Errror al retornar actividades ${error}`)
         }
     }
-    */
 
     useEffect(() => {
-        // En lugar de llamar a fetchActivities(), cargamos los datos locales directamente
-        setActivities(localData);
+        fetchActivities();
     }, []);
 
     const handleInscribir = (nombreActividad) => {
@@ -35,13 +31,12 @@ const Activities = () => {
 
     return (
         <div className="activities-container">
-            {/* Si activities está vacío o no carga, esto no romperá la app */}
-            {activities && activities.map((actividad) => (
+            {activities.map((actividad) => (
                 <Card key={actividad.nombre} title={actividad.nombre} subtitle={actividad.descripcion}>
                     <ul>
                         {actividad.horarios.map((horario, i) => (
                             <li key={i}>
-                                {diasSemana[horario.dia]}: {horario["hora-inicio"]} - {horario["hora-fin"]}
+                                { diasSemana[horario.dia] }: {horario["hora-inicio"] } - { horario["hora-fin"]}
                             </li>
                         ))}
                     </ul>
@@ -52,10 +47,12 @@ const Activities = () => {
                             </button>
                         )
                     }
+
                 </Card>
             ))}
         </div>
     )
+
 }
 
 export default Activities;
